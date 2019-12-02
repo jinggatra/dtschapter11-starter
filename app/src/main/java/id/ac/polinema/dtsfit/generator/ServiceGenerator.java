@@ -25,7 +25,9 @@ public class ServiceGenerator {
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
-    private ServiceGenerator() {}
+    private ServiceGenerator() {
+
+    }
 
     public static <Service> Service createService(Class<Service> serviceClass) {
         if (!httpClient.interceptors().contains(logging)) {
@@ -35,5 +37,6 @@ public class ServiceGenerator {
         retrofit = builder.build();
         return retrofit.create(serviceClass);
     }
+
 
 }

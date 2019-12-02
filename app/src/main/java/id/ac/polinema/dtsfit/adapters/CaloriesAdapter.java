@@ -20,20 +20,24 @@ public class CaloriesAdapter extends RecyclerView.Adapter<CaloriesAdapter.ViewHo
     private List<Calory> calories;
     private OnCaloryClickedListener listener;
 
+
     public CaloriesAdapter(Context context, OnCaloryClickedListener listener) {
         this.context = context;
         this.listener = listener;
+
     }
 
     public void setCalories(List<Calory> calories) {
         this.calories = calories;
         this.notifyDataSetChanged();
+
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_calory, parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -41,6 +45,8 @@ public class CaloriesAdapter extends RecyclerView.Adapter<CaloriesAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Calory calory = calories.get(position);
         // TODO: Bind object calory dengan holder
+        holder.foodText.setText(calory.getFood());
+        holder.caloryText.setText(String.valueOf(calory.getCalory()));
 
         holder.bind(calory, listener);
     }
