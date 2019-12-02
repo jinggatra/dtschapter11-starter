@@ -1,10 +1,12 @@
 package id.ac.polinema.dtsfit.models;
 
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 // TODO: Implementasikan parcelable
-public class Calory {
+public class Calory  implements Parcelable {
 
     // TODO: Generate model berdasarkan response REST
 
